@@ -1,0 +1,6 @@
+{
+  "name": "AI Capabilities Explorer Atlas",
+  "description": "An interactive, fully responsive holographic dashboard illustrating the multi-dimensional clusters, datasets, and ethical frameworks of modern AI models.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
