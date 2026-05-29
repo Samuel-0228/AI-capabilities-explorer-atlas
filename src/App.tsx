@@ -27,7 +27,7 @@ export default function App() {
   });
 
   // 2. ACTIVE DETAILED ISOLATION SELECTION
-  const [selectedCapabilityId, setSelectedCapabilityId] = useState<CapabilityId>('language');
+  const [selectedCapabilityId, setSelectedCapabilityId] = useState<CapabilityId>('vision');
 
   // 3. REACTIVE DATA COMPUTATIONS based on active sidebar configs
   const computedData = useMemo(() => {
@@ -56,7 +56,7 @@ export default function App() {
       <div className="absolute bottom-1/4 right-1/4 w-[500px] h-[500px] bg-purple-500/5 rounded-full blur-[180px] pointer-events-none" />
 
       {/* 1. APPLET VIEW HEADER PANEL */}
-      <header id="atlas-hologram-header" className="border-b border-slate-900 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40 px-4 py-3 md:py-4 transition-all">
+      <header id="atlas-hologram-header" className="border-b border-slate-900 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40 px-4 py-2 transition-all">
         <div className="max-w-[1600px] 2xl:max-w-[1800px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-3 w-full">
           
           {/* Main Title branding matching standard requirements */}
@@ -89,10 +89,10 @@ export default function App() {
       </header>
 
       {/* 2. CHASSIS DESCRIPTOR SUMMARY AREA */}
-      <div className="max-w-[1600px] 2xl:max-w-[1800px] mx-auto w-full px-4 pt-6 md:pt-8 flex-1 flex flex-col gap-6">
+      <div className="max-w-[1600px] 2xl:max-w-[1800px] mx-auto w-full px-4 pt-4 flex-1 flex flex-col gap-4">
         
         {/* Main 3-Column / Responsive 1-Column bento interface */}
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-4 items-start">
           
           {/* LEFT COLUMN: FILTER CONTROLS & telemetry logs (Span 3 on desktop) */}
           <div className="lg:col-span-3 order-2 lg:order-1">
@@ -142,6 +142,33 @@ export default function App() {
                 </button>
               ))}
             </div>
+
+            {/* 3. EXPANDED BENCHMARK COVERS: LIVE SANDBOX DETAILS */}
+            <section id="capabilities-interactive-playgrounds" className="mt-2 border-t border-slate-900/50 pt-4">
+              <div className="mb-4 flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5">
+                <div className="flex gap-2 items-center">
+                  <span className="p-1 rounded-lg bg-slate-900 text-cyan-400 border border-slate-800">
+                    <Sliders size={14} />
+                  </span>
+                  <h2 className="text-xs md:text-sm font-bold font-display uppercase tracking-widest text-white">
+                    Core Capability Sandbox Integrations
+                  </h2>
+                </div>
+                <div className="flex items-center bg-slate-900/50 p-1 rounded-xl border border-slate-900 text-[9.5px] font-mono">
+                  <span className="text-slate-500 uppercase px-2">Isolated Playground:</span>
+                  <span className="text-cyan-400 bg-cyan-950/40 border border-cyan-500/10 px-2 py-0.5 rounded-lg font-bold">
+                    {selectedCapabilityId.toUpperCase()} ENGINE
+                  </span>
+                </div>
+              </div>
+
+              <div className="transition-all duration-300">
+                {selectedCapabilityId === 'language' && <LanguagePlayground />}
+                {selectedCapabilityId === 'vision' && <VisionPlayground />}
+                {selectedCapabilityId === 'logic' && <LogicPlayground />}
+                {selectedCapabilityId === 'ethical' && <EthicalPlayground />}
+              </div>
+            </section>
           </div>
 
           {/* RIGHT COLUMN: ACTIVE DETAILED INTERACTIVE SANDBOX PLAYGROUNDS (Span 3 on desktop) */}
@@ -188,36 +215,11 @@ export default function App() {
           </div>
         </div>
 
-        {/* 3. EXPANDED BENCHMARK COVERS: LIVE SANDBOX DETAILS */}
-        <section id="capabilities-interactive-playgrounds" className="mt-8 pt-8 border-t border-slate-900">
-          <div className="mb-6 flex flex-col md:flex-row items-start md:items-center justify-between gap-2.5">
-            <div className="flex gap-2 items-center">
-              <span className="p-1 rounded-lg bg-slate-900 text-cyan-400 border border-slate-800">
-                <Sliders size={16} />
-              </span>
-              <h2 className="text-sm md:text-base font-bold font-display uppercase tracking-widest text-white">
-                Core Capability Sandbox Integrations
-              </h2>
-            </div>
-            <div className="flex items-center bg-slate-900/50 p-1.5 rounded-xl border border-slate-900 text-[10.5px] font-mono">
-              <span className="text-slate-500 uppercase px-2">Isolated Playground:</span>
-              <span className="text-cyan-400 bg-cyan-950/40 border border-cyan-500/10 px-2 py-0.5 rounded-lg font-bold">
-                {selectedCapabilityId.toUpperCase()} ENGINE
-              </span>
-            </div>
-          </div>
-
-          <div className="transition-all duration-300">
-            {selectedCapabilityId === 'language' && <LanguagePlayground />}
-            {selectedCapabilityId === 'vision' && <VisionPlayground />}
-            {selectedCapabilityId === 'logic' && <LogicPlayground />}
-            {selectedCapabilityId === 'ethical' && <EthicalPlayground />}
-          </div>
-        </section>
+        </div>
       </div>
 
       {/* 4. APP FOOTER */}
-      <footer className="max-w-[1600px] 2xl:max-w-[1800px] mx-auto w-full px-4 mt-16 text-center border-t border-slate-900 pt-6">
+      <footer className="max-w-[1600px] 2xl:max-w-[1800px] mx-auto w-full px-4 mt-2 text-center border-t border-slate-900 py-3">
         <p className="text-[10px] font-mono text-slate-600 uppercase tracking-widest">
           AI Capabilities Explorer Atlas • Sandbox Terminal Layer 1 • System Active
         </p>
