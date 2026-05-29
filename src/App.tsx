@@ -57,7 +57,7 @@ export default function App() {
 
       {/* 1. APPLET VIEW HEADER PANEL */}
       <header id="atlas-hologram-header" className="border-b border-slate-900 bg-slate-950/80 backdrop-blur-md sticky top-0 z-40 px-4 py-3 md:py-4 transition-all">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
+        <div className="max-w-[1600px] 2xl:max-w-[1800px] mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-3 w-full">
           
           {/* Main Title branding matching standard requirements */}
           <div className="flex flex-col gap-0.5">
@@ -89,7 +89,7 @@ export default function App() {
       </header>
 
       {/* 2. CHASSIS DESCRIPTOR SUMMARY AREA */}
-      <div className="max-w-7xl mx-auto w-full px-4 pt-6 md:pt-8 flex-1 flex flex-col gap-6">
+      <div className="max-w-[1600px] 2xl:max-w-[1800px] mx-auto w-full px-4 pt-6 md:pt-8 flex-1 flex flex-col gap-6">
         
         {/* Main 3-Column / Responsive 1-Column bento interface */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 items-start">
@@ -217,7 +217,7 @@ export default function App() {
       </div>
 
       {/* 4. APP FOOTER */}
-      <footer className="max-w-7xl mx-auto w-full px-4 mt-16 text-center border-t border-slate-900 pt-6">
+      <footer className="max-w-[1600px] 2xl:max-w-[1800px] mx-auto w-full px-4 mt-16 text-center border-t border-slate-900 pt-6">
         <p className="text-[10px] font-mono text-slate-600 uppercase tracking-widest">
           AI Capabilities Explorer Atlas • Sandbox Terminal Layer 1 • System Active
         </p>
