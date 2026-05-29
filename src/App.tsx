@@ -215,7 +215,6 @@ export default function App() {
           </div>
         </div>
 
-        </div>
       </div>
 
       {/* 4. APP FOOTER */}
